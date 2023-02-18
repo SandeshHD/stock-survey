@@ -1,0 +1,79 @@
+<p-fieldset legend="Personal Information">
+  <form class="container" [formGroup]="profileForm">
+    <div class="row">
+      <div class="form-group col-sm-6 my-4">
+        <span class="p-float-label">
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            pInputText
+            formControlName="firstName"
+          />
+          <label for="firstName">First Name</label>
+        </span>
+      </div>
+      <div class="form-group col-sm-6 my-4">
+        <span class="p-float-label">
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            pInputText
+            formControlName="lastName"
+          />
+          <label for="lastName">Last Name</label>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-6 my-4">
+        <span class="p-float-label">
+          <select id="gender" class="form-control" pInputText formControlName="gender" [value]="profileForm.value.gender">
+            <option value="default" [defaultSelected]="true">Choose your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </span>
+      </div>
+      <div class="form-group col-sm-6 my-4">
+        <span class="p-float-label">
+          <input
+            type="number"
+            min="0"
+            max="100"
+            class="form-control"
+            id="age"
+            pInputText
+            formControlName="age"
+          />
+          <label for="age">Age</label>
+        </span>
+      </div>
+    </div>
+
+    <!-- <div formArrayName="aliases">
+      <button type="button" (click)="addAlias()">+ Add another alias</button>
+    
+      <div *ngFor="let alias of aliases.controls; let i=index">
+        The repeated alias template
+        <label for="alias-{{ i }}">Alias:</label>
+        <input id="alias-{{ i }}" type="text" [formControlName]="i">
+      </div>
+    </div> -->
+
+    
+    <!-- <button class="btn btn-primary" (click)="updateName()">Click to change</button> -->
+    <div class="d-flex justify-content-end my-4">
+      <button [routerLink]="'survey'" class="btn btn-primary" [disabled]="!profileForm.valid"> Next </button>
+      <!--           
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!profileForm.valid"
+          >
+            Submit
+          </button> -->
+    </div>
+  </form>
+</p-fieldset>
